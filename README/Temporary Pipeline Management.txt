@@ -1,0 +1,44 @@
+Temporary Pipeline Management:
+* Stage 1 (Data Read/Write without priority):
+   -> Upper Clock Cycle:
+       - Fetch Stage Disable (Will be done on the falling edge)
+       - Instruction Pointer Disable
+       - Data Stack Push (Will be done on the falling edge)
+       - Register Bus & Data Bus Connect
+       - Bus Interface Unit Read
+       - Register Read
+       - Index Register Decrement
+       - Flag Register Handling
+       - TemporaryARegister Fetch
+       - Address Calculation (Segment * 8 + Base + Index * Scale + Displacement)
+   -> Lower Clock Cycle:
+       - Bus Interface Unit Write
+       - Register Write 
+       - Fetch Instruction (if FSD is off)
+       - TemporaryDRegister Fetch
+       - Index Register Increment
+       - TemporaryARegister Increment
+* Stage 2 (Data Read/Write with priority):
+   -> Upper Clock Cycle:
+       - Fetch Stage Disable (Will be done on the falling edge)
+       - Instruction Pointer Disable
+       - Data Stack Push (Will be done on the falling edge)
+       - Register Bus & Data Bus Connect
+       - Bus Interface Unit Read
+       - Register Read
+       - Index Register Decrement
+       - Address Calculation (Segment * 8 + Base + Index * Scale + Displacement)
+   -> Lower Clock Cycle:
+       - Bus Interface Unit Write
+       - Register Write 
+       - TemporaryDRegister Fetch
+       - Index Register Increment
+       - TemporaryARegister Reset to 0
+* Stage 3 (ALU & Register-to-Register):
+   -> Upper Clock Cycle:
+       - Register Read
+       - LHS & RHS Register Read
+       - ALU Execute
+   -> Lower Clock Cycle:
+       - Register Write
+

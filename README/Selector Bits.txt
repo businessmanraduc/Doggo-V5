@@ -1,0 +1,17 @@
+Selector Bits:
+0000 - NOP
+0001 - Load value into GPR
+0010 - Increment-LowByte
+0011 - Decrement-LowByte
+0100 - Load GPR-LowByte
+0101 - Load GPR-UpperByte
+0110 - Increment-UpperByte
+0111 - Decrement-UpperByte
+1000 - NOP
+1001 - C2Invert GPR
+1010 - C2Invert-LowByte
+1011 - C2Invert-UpperByte
+1100 - NOP
+1101 - NOP
+1110 - Increment GPR
+1111 - Decrement GPR
