@@ -1,0 +1,33 @@
+Operation Select:
+00000 - ADD (Add)
+00001 - ADC16 (Add with carry)
+00010 - NOT
+00011 - SBC16 (Subtract with borrow)
+00100 - XOR
+00101 - INCC16 (Increment on Carry)
+00110 - DEC (Decrement LHS)
+00111 - DECC16 (Decrement on Carry)
+01000 - AND
+01001 - nop
+01010 - OR
+01011 - CMP16
+01100 - INC (Increment LHS)
+01101 - nop
+01110 - SUB (Subtract)
+01111 - CMP8
+10000 - SHL16
+10001 - SHR16
+10010 - BSF
+10011 - ASR16
+10100 - ROL16
+10101 - ROR16
+10110 - RCL16
+10111 - RCR16
+11000 - SHL8
+11001 - SHR8
+11010 - BSR
+11011 - ASR8
+11100 - ROL8
+11101 - ROR8
+11110 - RCL8
+11111 - RCR8

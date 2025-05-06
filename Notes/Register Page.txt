@@ -1,0 +1,73 @@
+Register Page
+ -> 8 GPRs, separated into 4 GPRs and GP-ARs
+ -> GPRs:
+     * 16-bit values
+     * can do multiple operations by themselves:
+        - increment/decrement value by 1
+        - shift value to the left/right
+        - extended shifting along multiple registers
+     * split into two 8-bit halves (lower and upper)
+     * can Output data onto:
+        - Data Bus
+        - LHS Bus
+        - RHS Bus
+     * can Load data from Data Bus
+ -> GP-ARs
+     * 16-bit values
+     * can increment/decrement values by 1
+     * can Output data onto:
+         - Data Bus
+     * can Load data from Data Bus
+ -> Instructions:
+     * Output Enable pin:
+	General state:
+	 - 00000 - Take Input from outside
+	Register Select bits (2-4):
+	 - 000 - GPR-A
+	 - 001 - GPR-B
+	 - 010 - GPR-C
+	 - 011 - GPR-D
+	 - 100 - SP
+	 - 101 - BP
+	 - 110 - SI
+	 - 111 - DI
+        Segment bits (0-1):
+	 - 00 - NOP
+	 - 01 - Lower Byte of GPR
+	 - 10 - Upper Byte of GPR
+	 - 11 - Full Value of GPR
+     * Operand Select pin:
+	Register Select Bits (3-5):
+	 - 000 - GPR-A
+	 - 001 - GPR-B
+	 - 010 - GPR-C
+	 - 011 - GPR-D
+	 - 100 - SP
+	 - 101 - BP
+	 - 110 - SI
+	 - 111 - DI
+	GPR Operand Bits (0-2):
+	 - 000 - NOP
+	 - 001 - Shift value of GPR to the right
+	 - 010 - Shift value of GPR to the left
+	 - 011 - Load Lower Byte of GPR
+	 - 100 - Load value into GPR (stops increments and decrements in the meanwhile)
+	 - 101 - Increment value of GPR
+	 - 110 - Decrement value of GPR
+	 - 111 - Load Upper Byte of GPR
+	GP-AR Operand Bits (0-2):
+	 - 000 - NOP
+	 - 001 - Increment value
+	 - 010 - Decrement value
+	 - 100 - Load new value from Data Bus
+     * LHS/RHS Output Enable:
+	Register Select bits (2-3):
+	 - 00 - GPR-A
+	 - 01 - GPR-B
+	 - 10 - GPR-C
+	 - 11 - GPR-D
+	Section bits (0-1):
+	 - 00 - NOP
+	 - 01 - Lower byte of GPR
+	 - 10 - Upper byte of GPR
+	 - 11 - Full value of GPR
